@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Picture This! - Unlock Creativity</title>
@@ -71,15 +73,12 @@
     <div class="product">
         <div class="product-box">
             <img src="images/box-mockup2.png" alt="Picture This! Product" class="product-image">
-            <!-- Flying Card Images -->
-            <!-- Left Side -->
-            <img src="images/52.png" alt="Card 1" class="card fly-card card-left card1">
-            <img src="images/18.png" alt="Card 2" class="card fly-card card-left card2">
-            <img src="images/6.png" alt="Card 3" class="card fly-card card-left card3">
-            <!-- Right Side -->
-            <img src="images/22.png" alt="Card 4" class="card fly-card card-right card4">
-            <img src="images/36.png" alt="Card 5" class="card fly-card card-right card5">
-            <img src="images/42.png" alt="Card 6" class="card fly-card card-right card6">
+            <!-- Swiper Carousel -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="card-wrapper">
+                    <!-- Cards dynamically injected by JavaScript -->
+                </div>
+            </div>
         </div>
         <div class="product-details">
             <h3>Picture This! Card Game</h3>
@@ -88,6 +87,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- FAQ Section -->
 <section id="faq">
@@ -103,7 +103,7 @@
         </div>
         <div class="tile">
             <h3>Game duration?</h3>
-            <p>Games last 20–60 minutes, perfect for short and long sessions.</p>
+            <p>Games last 15–60 minutes, perfect for short and long sessions.</p>
         </div>
     </div>
 </section>
@@ -137,5 +137,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
