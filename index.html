@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Swiper CSS -->
+    <!-- Include Head -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,134 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- Alert Bar -->
-<div class="alert-bar">
-    Free Shipping in Ontario!
-</div>
+<!-- Dynamic Section Loading -->
+<div id="alert-bar"></div>
+<header id="header"></header>
+<section id="hero"></section>
+<section id="about"></section>
+<section id="features"></section>
+<section id="shop"></section>
+<section id="faq"></section>
+<section id="contact"></section>
+<footer id="footer"></footer>
 
-<!-- Header -->
-<header>
-    <nav>
-        <img src="images/logo2.png" alt="Picture This! Logo" class="logo">
-        <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="cart/cart.html" class="cart-link">Cart</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- Hero Section -->
-<section id="hero">
-    <div class="hero-text">
-        <h1>Unlock Creativity with <span>Picture This!</span></h1>
-        <p>The storytelling card game designed to foster imagination, critical thinking, and fun.</p>
-        <a href="#shop" class="cta-button">Shop Now</a>
-    </div>
-</section>
-
-<!-- Horizontal Tile for About -->
-<section id="about">
-    <div class="horizontal-tile">
-        <h2>About Picture This!</h2>
-        <p>Picture This! is a creative toolkit designed to bring families together while fostering imagination and critical thinking. Say goodbye to screens and hello to endless adventures!</p>
-    </div>
-</section>
-
-<!-- Features Section -->
-<section id="features">
-    <h2>Features</h2>
-    <div class="tiles">
-        <div class="tile">
-            <h3>Creative Storytelling</h3>
-            <p>Endless combinations of characters, settings, and plots spark imaginative tales.</p>
-        </div>
-        <div class="tile">
-            <h3>Educational Fun</h3>
-            <p>Boost critical thinking, social interaction, and problem-solving skills.</p>
-        </div>
-        <div class="tile">
-            <h3>Family Connection</h3>
-            <p>Enjoy meaningful moments together with every game.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Shop Section -->
-<section id="shop" class="shop-section">
-    <h2>Shop Now</h2>
-    <div class="product">
-        <div class="product-box">
-            <img src="images/box-mockup2.png" alt="Picture This! Product" class="product-image">
-            <!-- Swiper Carousel -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper" id="card-wrapper">
-                    <!-- Cards dynamically injected by JavaScript -->
-                </div>
-            </div>
-        </div>
-        <div class="product-details">
-            <h3>Picture This! Card Game</h3>
-            <p>$24.99 CAD</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
-    </div>
-</section>
-
-
-<!-- FAQ Section -->
-<section id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="tiles">
-        <div class="tile">
-            <h3>How many players can join?</h3>
-            <p>2–7 players, perfect for families and groups!</p>
-        </div>
-        <div class="tile">
-            <h3>Recommended age?</h3>
-            <p>Suitable for ages 6 and up.</p>
-        </div>
-        <div class="tile">
-            <h3>Game duration?</h3>
-            <p>Games last 15–60 minutes, perfect for short and long sessions.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <h2>Contact Us</h2>
-    <p>Have questions or need assistance? We'd love to hear from you!</p>
-    <form class="contact-form" action="#" method="POST">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Write us here..." required></textarea>
-        </div>
-        <button type="submit" class="submit-button">Send Message</button>
-    </form>
-</section>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-links">
-        <p>&copy; 2024 Picture This! All rights reserved.</p>
-    </div>
-</footer>
-
+<!-- JavaScript -->
 <script src="js/main.js"></script>
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Include HTML Sections Dynamically -->
+<script>
+    const sections = [
+        { id: 'alert-bar', file: 'html/alert-bar.html' },
+        { id: 'header', file: 'html/header.html' },
+        { id: 'hero', file: 'html/hero-section.html' },
+        { id: 'about', file: 'html/about-section.html' },
+        { id: 'features', file: 'html/features-section.html' },
+        { id: 'shop', file: 'html/shop-section.html' },
+        { id: 'faq', file: 'html/faq-section.html' },
+        { id: 'contact', file: 'html/contact-section.html' },
+        { id: 'footer', file: 'html/footer.html' },
+    ];
+
+    sections.forEach(section => {
+        fetch(section.file)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(section.id).innerHTML = data;
+            })
+            .catch(error => console.error('Error loading section:', section.file, error));
+    });
+</script>
 </body>
 </html>
